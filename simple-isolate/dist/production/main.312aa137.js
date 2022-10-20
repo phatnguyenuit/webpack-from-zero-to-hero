@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[179],{10:(s,e,l)=>{l(972),((s,...e)=>{console.log(`[${s}]`,"Print with args"),console.log(`[${s}]`,...e)})("INFO",1,2,3,5,"OK?")}},s=>{s(s.s=10)}]);
