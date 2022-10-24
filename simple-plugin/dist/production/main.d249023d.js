@@ -1,1 +1,0 @@
-((o,...l)=>{console.log(`[${o}]`,"Print with args"),console.log(`[${o}]`,...l)})("INFO",1,2,3,5,"OK?");
