@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 /**
  * Webpack configuration function
@@ -20,7 +21,7 @@ function configurationFunc(env, agrv) {
 
   return {
     mode,
-    target: 'web',
+    target: 'node',
     entry: path.resolve(__dirname, 'src', 'index.ts'),
     output: {
       path: path.resolve(__dirname, 'dist', mode),
@@ -31,16 +32,21 @@ function configurationFunc(env, agrv) {
     module: {
       rules: [
         {
-          test: /\.tsx?$/,
-          use: 'ts-loader',
+          test: /\.ts$/,
+          use: ['babel-loader'],
           exclude: /node_modules/,
         },
       ],
     },
-    plugins: [new webpack.ProgressPlugin()],
+    plugins: [
+      new webpack.ProgressPlugin(),
+      new ForkTsCheckerWebpackPlugin({
+        async: !isProdEnv,
+      }),
+    ],
     devtool: isProdEnv ? false : 'inline-source-map',
     resolve: {
-      extensions: ['.js', '.ts', '.tsx'],
+      extensions: ['.js', '.ts'],
     },
   };
 }
