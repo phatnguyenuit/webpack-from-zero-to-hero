@@ -1,6 +1,8 @@
 # webpack-from-zero-to-hero
 
+## Table of content
 - [webpack-from-zero-to-hero](#webpack-from-zero-to-hero)
+  - [Table of content](#table-of-content)
   - [Entry](#entry)
   - [Output](#output)
   - [Loaders](#loaders)
